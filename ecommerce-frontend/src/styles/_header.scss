@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+.header-container .navbar{
+    padding: 10px 15px 10px 60px;
+    @include flex(row, space-between, center, 40px);
+}
+
+.navbar{
+    background-color: rgb(236, 236, 236);
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    min-width: 400px;
+}
+
+.navbar-left{
+    @include flex(row, center, center, 20px);
+}
+
+.navbar-left .navbar-search{
+    @include flex(row, center, center, 0px);
+    // padding: 3px 5px;
+}
+
+.navbar-search-icon{
+    font-size: 28px;
+    padding: 2px;
+    font-weight: 300;
+    // background-color: rgb(136, 136, 136);
+    // border-radius: 4px;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+.navbar-search-active{
+    border: 1px solid green;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.navbar-search input{
+    border: none;
+    background-color: rgb(236, 236, 236);
+    font-size: 20px;
+    color: black;
+    padding: 10px 0px 10px 5px;
+}
+
+.navbar-search input:focus{
+    outline: none;
+}
+
+.navbar .navbar-logo img{
+    width: 80px;
+}
+
+.navbar-utility{
+    @include flex(row, center, center, 40px);
+}
+
+.navbar-utility .utility-cart{
+    @include flex(row, center, center, 5px);
+}
+
+.navbar .navbar-utility .cart-icon{
+    font-size: 25px;
+}
+
+.cart-group{
+    position: relative;
+}
+
+.cart-group .cart-count{
+    position: absolute;
+    font-size: 11px;
+    background-color: rgb(136, 136, 136);
+    color: black;
+    padding: 2px;
+    border-radius: 50%;
+    top: -50%;
+    transform: translateY(50%);
+    right: -15px;
+}
+
+.navbar-utility .utility-profile{
+    @include flex(row, center, center, 15px);
+}
+
+.navbar-utility .utility-profile img{
+    width: 40px;
+    border-radius: 40px;
+    border: 1px solid rgb(27, 27, 27);
+}
+
+.navbar-utility .utility-profile .login-link{
+    font-size: 20px;
+    padding: 5px 10px;
+    border-radius: 4px;
+    background-color: rgb(136, 136, 136);
+}
+
+@media (max-width: 800px){
+    .header-container .navbar{
+        padding: 10px 20px;
+        // @include flex(row, space-between, center, 40px);
+    }
+
+    .utility-cart .cart-text{
+        display: none;
+    }
+}
+
+@media (max-width: 400px){
+    .navbar .navbar-links{
+        display: none;
+    }
+}

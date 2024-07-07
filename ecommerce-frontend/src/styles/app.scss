@@ -13,5 +13,8 @@ a {
     color: black;
 }
 
-
-@import './loader/loader';
+@import './mixins';
+@import './loader';
+@import './header';
+@import './homepage';
+@import './cart';

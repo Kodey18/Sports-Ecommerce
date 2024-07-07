@@ -1,0 +1,11 @@
+@mixin flex($dirc: row, $justifyContent: center, $alignItems: center, $gap: 30px){
+    display: flex;
+    flex-direction: $dirc;
+    justify-content: $justifyContent;
+    align-items: $alignItems;
+    gap: $gap;
+}
+
+@mixin bg-color($color){
+    background-color: $color;
+}
