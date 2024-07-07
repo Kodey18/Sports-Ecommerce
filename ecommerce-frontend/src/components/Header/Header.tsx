@@ -2,7 +2,7 @@ import { IoBagCheckOutline } from "react-icons/io5";
 import { NavLink } from "react-router-dom";
 import {Divider} from 'primereact/divider'
 import { IoIosSearch } from "react-icons/io";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 
         
@@ -10,15 +10,30 @@ import { useState } from "react";
 const Header = () => {
   const cartCount = 11;
   const isAuthenticated = false;
+  const menuRef = useRef<HTMLDivElement>(null);
   const [searchActive, setSearchActive] = useState<boolean>(false);
+  const [profileMenuActive, setProfileMenuActive] = useState<boolean>(false);
 
   const handleSearchFocus = () => {
-    setSearchActive(true);
+    setSearchActive(!searchActive);
   }
 
-  const handleSearchBlur = () => {
-    setSearchActive(false);
+  const handleMenuFocus = () => {
+    setProfileMenuActive(true);
   }
+
+  const handleClickOutside = (event: MouseEvent) => {
+    if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+      setProfileMenuActive(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   return <div className="header-container">
     <div className="navbar">
@@ -34,7 +49,7 @@ const Header = () => {
           <IoIosSearch className="navbar-search-icon" />
           <input 
             onFocus={handleSearchFocus} 
-            onBlur={handleSearchBlur}
+            onBlur={handleSearchFocus}
             type="text" 
             placeholder="Search" 
             className="navbar-search-input" 
@@ -60,14 +75,36 @@ const Header = () => {
         </div>
 
         <div className="utility-profile">
-          <img className="profile-logo" src="/assets/profile.jpg" alt="profile_logo" />
-          {/* If logged in then Logout will be show in the profile menu and if not logged in then Login will be shown. */}
-          {
-            !isAuthenticated && 
-            <NavLink className={"login-link"} to={'/login'}>
-              Login
-            </NavLink>
-          }
+          <div className="profile-group">
+            <img 
+              onClick={handleMenuFocus}
+              className="profile-logo" 
+              src="/assets/profile.jpg" 
+              alt="profile_logo" 
+            />
+            <div 
+              ref={menuRef}
+              className={`profile-menu ${profileMenuActive ? 'profile-menu-active' : ''}`}
+            >
+              <div className="profile-item">Profile</div>
+              <div className="profile-item">Orders</div>
+              <div className="profile-item">
+                {/* If logged in then Logout will be show in the profile menu and if not logged in then Login will be shown. */}
+                {
+                  isAuthenticated ? (
+                    <span>
+                      Logout
+                    </span>
+                  ) : (
+                    <NavLink to={'/login'}>
+                      Login
+                    </NavLink>
+                  )
+                }
+              </div>
+            </div>
+          </div>          
+
         </div>
 
       </div>

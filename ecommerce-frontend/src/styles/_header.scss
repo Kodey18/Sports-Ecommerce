@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
 .header-container .navbar{
-    padding: 10px 15px 10px 60px;
+    padding: 10px 40px 10px 60px;
     @include flex(row, space-between, center, 40px);
 }
 
@@ -60,6 +60,7 @@
 
 .navbar-utility .utility-cart{
     @include flex(row, center, center, 5px);
+    cursor: pointer;
 }
 
 .navbar .navbar-utility .cart-icon{
@@ -87,9 +88,55 @@
 }
 
 .navbar-utility .utility-profile img{
-    width: 40px;
+    width: 35px;
     border-radius: 40px;
     border: 1px solid rgb(27, 27, 27);
+}
+
+.profile-group{
+    position: relative;
+    cursor: pointer;
+}
+
+.profile-group .profile-menu{
+    position: absolute;
+    background-color: red;
+    min-width: 100px;
+    right: 100%;
+    transform: translateX(25%);
+    top: 100%;
+    z-index: 100;
+    background-color: white;
+    box-shadow: 3px 3px 7px -7px black;
+    border: 1px solid rgb(198, 198, 198);
+    border-radius: 5px;
+    padding: 10px;
+    display: none;
+    cursor: pointer;
+}
+
+.profile-group .profile-menu-active{
+    display: block;
+}
+
+.profile-menu .profile-item{
+    text-align: center;
+    padding: 5px 0px;
+    letter-spacing: 1px;
+    transition: background-color 0.3s ease;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.profile-menu .profile-item:not(:last-child){
+    border-bottom: 1px solid rgb(198, 198, 198);
+}
+
+.profile-menu .profile-item:hover{
+    text-align: center;
+    padding: 5px 0px;
+    letter-spacing: 1px;
+    color: rgb(136, 136, 136);
 }
 
 .navbar-utility .utility-profile .login-link{
