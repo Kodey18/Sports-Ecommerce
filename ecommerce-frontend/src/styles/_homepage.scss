@@ -1,3 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Glitch+Pop&display=swap');
+
+.rubik-glitch-pop-regular {
+    font-family: "Rubik Glitch Pop", system-ui;
+    font-weight: 400;
+    font-style: normal;
+}  
+
 .homepage-container{
     height: 100vh;
+}
+
+.hero-product{
+    background-color: rgb(255, 171, 2);
+    height: 100%;
+    @include flex(row, center, center, 0px);
+    position: relative;
+}
+
+.hero-phrase {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    white-space: nowrap;
+    background-color: black;
+    color: white;
+    display: flex;
+}
+
+.phrase-container {
+    display: flex;
+    white-space: nowrap;
+    gap: 150px;
+    letter-spacing: 15px;
+}
+
+.phrase {
+    display: inline-block;
+    padding: 0 2rem;
+    font-family: "Rubik Glitch Pop", system-ui;
+    font-size: 80px;
+}
+
+.phrase-1{
+    top: 0;
+    left: 0;
+    font-family: "Rubik Glitch Pop", system-ui;
+    // font-weight: 100;
+    font-size: 50px;
+    letter-spacing: 4px;
+    color: white;
+    background-color: black;
+    // background-color: aliceblue;
+}
+
+.hero-title{
+    max-width: 90%;
+    z-index: 2;
+}
+
+.hero-image{
+    position: absolute;
+    z-index: 10;
+    width: 60%;
+    left: 30%;
+    margin-top: 50px;
+}
+
+.category-posters{
+    display: flex;
+    max-width: 100vw;
+}
+
+.category-posters > div {
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.category-posters > div:hover img {
+    transform: scale(1.1);
+}
+
+.category-posters img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+@media (max-width: 1100px){
+    .hero-product{
+        background-color: rgb(255, 171, 2);
+        height: 60%;
+        @include flex(row, center, center, 0px);
+        position: relative;
+    }
+
+    .hero-image{
+        width: 50%;
+    }
+
+    .phrase{
+        font-size: 50px;
+    }
+}
+
+@media (max-width: 800px){
+    .hero-product{
+        height: 50%;
+    }
+
+    .phrase{
+        font-size: 35px;
+    }
+}
+
+@media (max-width: 650px){
+    .hero-product{
+        height: 40%;
+    }
+
+    .hero-title{
+        max-width: 100%;
+        z-index: 2;
+    }
+
+    .phrase{
+        font-size: 25px;
+    }
 }

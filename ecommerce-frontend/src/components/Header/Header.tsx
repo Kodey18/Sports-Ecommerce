@@ -1,8 +1,8 @@
 import { IoBagCheckOutline } from "react-icons/io5";
-import { NavLink } from "react-router-dom";
-import {Divider} from 'primereact/divider'
+import { NavLink, useNavigate } from "react-router-dom";
 import { IoIosSearch } from "react-icons/io";
 import { useEffect, useRef, useState } from "react";
+import {BreadCrumb} from 'primereact/breadcrumb'
 
 
         
@@ -11,6 +11,7 @@ const Header = () => {
   const cartCount = 11;
   const isAuthenticated = false;
   const menuRef = useRef<HTMLDivElement>(null);
+  const Navigate = useNavigate();
   const [searchActive, setSearchActive] = useState<boolean>(false);
   const [profileMenuActive, setProfileMenuActive] = useState<boolean>(false);
 
@@ -27,6 +28,10 @@ const Header = () => {
       setProfileMenuActive(false);
     }
   };
+
+  const NavigateCart = () => {
+    Navigate("/cart");
+  }
 
   useEffect(() => {
     document.addEventListener('mousedown', handleClickOutside);
@@ -66,7 +71,10 @@ const Header = () => {
         {/*   
         Cart Count should be zero till Login and if clicked on cart before login then popup Should be show to login 
         */}
-        <div className="utility-cart">
+        <div 
+          className="utility-cart"
+          onClick={NavigateCart}
+        >
           <span className="cart-text">My Cart</span>
           <span className="cart-group">
             <IoBagCheckOutline className="cart-icon" />
