@@ -10,10 +10,6 @@ const HomePage = () => {
     "FRESH KICKS, FRESH START.",
     "UNLEASH YOUR SOLE.",
     "FRESH KICKS, FRESH START.",
-    // "UNLEASH YOUR SOLE",
-    // "UNLEASH YOUR SOLE",
-    // "UNLEASH YOUR SOLE",
-    // "UNLEASH YOUR SOLE",
   ];
   
   return (
@@ -58,17 +54,33 @@ const HomePage = () => {
       </div>
 
       <div className="category-posters">
-        <div className='poster-container'>
+        <div className='poster-container con1'>
           <img src="/assets/ban2.png" alt="banner2" />
+          <span className='ban2-text1'>GRIP YOUR <span className='text1-cus'>DESTINY</span></span>
+          <span className='ban2-text2'>
+            <span>STEP INTO THE FUTURE WITH EVERY STRIDE.</span> 
+            <span>
+              <span className='text2-cus'>60% OFF</span> ON ALL GYM WEARS</span> 
+          </span>
+          {/* */}
         </div>
-        <div className='poster-container'>
+
+        <div className='poster-container con2'>
           <img src="/assets/ban1.png" alt="banner1" />
-          <span>
-            NEW ARRIVALS
+          <span className='ban1-text1'>
+            UNLEASH YOUR
+          </span>
+          <span className='ban1-text2'>
+            <span className='text2-cus'>INNER</span> ICON
+          </span>
+          <span className='ban1-text3'>
+            ELEVATE YOUR STYLE WITH OUR<br /><span className='text3-cus'>EXCLUSIVE SNEAKER</span> COLLECTION
           </span>
         </div>
-        <div className='poster-container'>
+
+        <div className='poster-container con3'>
           <img src="/assets/ban3.jpg" alt="banner3" />
+          <span className='ban3-text1'>USE PROMO CODE <span className='text3-cus'>FLYHIGH</span> TO GET FREE DELIVERY ON YOUR FIRST ORDER</span>
         </div>
       </div>
     </main>
